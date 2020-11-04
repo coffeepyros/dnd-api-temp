@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import Filter from "./components/Filter.jsx";
+// import Card from "./components/Card.jsx";
+import Classes from "./components/Classes.jsx";
+import Races from "./components/Races.jsx";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <Router>
+      <header>
+        (LOGO)
+        <h1>DND API INTERFACE</h1>
+        <nav>
+          <Link to="/classes">Classes</Link>
+          <Link to="/races">Races</Link>
+        </nav>
+        <Filter />
       </header>
-    </div>
+      <Switch>
+        <Route path="/classes" component={Classes} />
+        <Route path="/races" component={Races} />
+      </Switch>
+    </Router>
   );
 }
 
